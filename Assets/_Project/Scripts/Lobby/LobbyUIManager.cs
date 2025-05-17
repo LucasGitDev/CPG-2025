@@ -17,6 +17,7 @@ public class LobbyUIManager : MonoBehaviour
     {
         createRoomButton.onClick.AddListener(CreateRoom);
         joinRoomButton.onClick.AddListener(JoinRoom);
+        roomAddressInput.text = "127.0.0.1";
         NetworkManager.Singleton.ConnectionApprovalCallback += ConnectionApproval;
     }
 
@@ -110,7 +111,7 @@ public class LobbyUIManager : MonoBehaviour
 
         if (NetworkManager.Singleton.StartClient())
         {
-            SceneManager.LoadScene("GameScene"); // opcional: só se quiser forçar cena (normalmente o host manda)
+            SceneManager.LoadScene("Game");
         }
         else
         {
